@@ -42,7 +42,7 @@ abstract class Command implements ICommand {
   abstract execute(): void;
 }
 
-class ExitCommand implements Command {
+class ExitCommand extends Command {
   public execute(): void {
     console.log("[*] Exit command executed");
     if (confirm('Are you sure you want to exit?')) {
@@ -51,10 +51,11 @@ class ExitCommand implements Command {
   }
 }
 
-class MovementCommand implements Command {
+class MovementCommand extends Command {
   private direction: string;
 
   constructor(direction: string) {
+    super();
     this.direction = direction;
   }
 
@@ -63,7 +64,7 @@ class MovementCommand implements Command {
   }
 }
 
-class EmptyCommand implements ICommand {
+class EmptyCommand extends Command {
   public execute(): void {
     //
   }
