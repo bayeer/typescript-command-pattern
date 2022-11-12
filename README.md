@@ -9,7 +9,7 @@ brew install yarn
 2. Install parcel v2:
 
 ```bash
-yarn add parcel
+yarn add parcel --dev
 ```
 3. Run project:
 
