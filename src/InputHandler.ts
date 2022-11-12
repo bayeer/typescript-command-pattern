@@ -3,6 +3,7 @@ import { ExitCommand } from "./command/ExitCommand";
 import { MovementCommand } from "./command/MovementCommand";
 import { EmptyCommand } from "./command/EmptyCommand";
 import { ContextMenuCommand } from "./command/ContextMenuCommand";
+import { MouseClickCommand } from "./command/MouseClickCommand";
 
 export class InputHandler {
   public handleKeyboardInput(keyCode: string): ICommand {
@@ -21,8 +22,13 @@ export class InputHandler {
     return new EmptyCommand();
   }
 
-  public handleMouseInput(button: number): ICommand {
-    switch (button) {
+  public handleMouseInput(e: MouseEvent): ICommand {
+    console.log('Mouse pressed', e);
+    console.log('button:', e.button, ' which:', e.which);
+
+    switch (e.button) {
+      case 0:
+        return new MouseClickCommand();
       case 2:
         return new ContextMenuCommand();
     }

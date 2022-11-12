@@ -3,6 +3,14 @@ import {ICommand} from "./interface/ICommand";
 
 export class Game {
 
+  private inputHandler: InputHandler
+
+  constructor() {
+    this.inputHandler = new InputHandler();
+    this.handleKeyboardInput = this.handleKeyboardInput.bind(this);
+    this.handleMouseInput = this.handleMouseInput.bind(this);
+  }
+
   public run() {
     this.initHandlers();
   }
@@ -33,12 +41,7 @@ export class Game {
   }
 
   private handleMouseInput(e: MouseEvent) {
-    const command: ICommand = this.inputHandler.handleMouseInput(e.button);
+    const command: ICommand = this.inputHandler.handleMouseInput(e);
     command.execute();
-  }
-
-  constructor(private inputHandler: InputHandler) {
-    this.handleKeyboardInput = this.handleKeyboardInput.bind(this);
-    this.handleMouseInput = this.handleMouseInput.bind(this);
   }
 }
