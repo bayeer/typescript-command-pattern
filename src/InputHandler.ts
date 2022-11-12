@@ -2,9 +2,10 @@ import { ICommand } from "./interface/ICommand";
 import { ExitCommand } from "./command/ExitCommand";
 import { MovementCommand } from "./command/MovementCommand";
 import { EmptyCommand } from "./command/EmptyCommand";
+import { ContextMenuCommand } from "./command/ContextMenuCommand";
 
 export class InputHandler {
-  public handleInput(keyCode: string): ICommand {
+  public handleKeyboardInput(keyCode: string): ICommand {
     switch (keyCode) {
       case "Escape":
         return new ExitCommand();
@@ -17,6 +18,15 @@ export class InputHandler {
       case "KeyD":
         return new MovementCommand("right");
     }
+    return new EmptyCommand();
+  }
+
+  public handleMouseInput(button: number): ICommand {
+    switch (button) {
+      case 2:
+        return new ContextMenuCommand();
+    }
+
     return new EmptyCommand();
   }
 }
