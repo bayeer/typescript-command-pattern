@@ -1,14 +1,27 @@
-import { Command } from "./Command";
+import {Command} from "./Command";
+import {GameMap} from "../GameMap";
 
 export class MovementCommand extends Command {
-  private readonly direction: string;
 
-  constructor(direction: string) {
+  constructor(private map: GameMap, private direction: string) {
     super();
-    this.direction = direction;
   }
 
   public execute(): void {
     console.log(`[*] Movement command executed: ${this.direction}`);
+    switch (this.direction) {
+      case 'left':
+        this.map.moveUnitLeft();
+        break;
+      case 'right':
+        this.map.moveUnitRight();
+        break;
+      case 'up':
+        this.map.moveUnitUp();
+        break;
+      case 'down':
+        this.map.moveUnitDown();
+        break;
+    }
   }
 }

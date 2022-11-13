@@ -1,4 +1,4 @@
-import { Game } from "./Game";
+import {Game} from "./Game";
 
 export class App {
   private game: Game;
@@ -11,6 +11,6 @@ export class App {
     console.info("[*] Application started...");
 
     this.game = new Game();
-    this.game.run();
+    this.game.start();
   }
 }
