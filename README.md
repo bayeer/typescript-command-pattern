@@ -1,20 +1,14 @@
 # Quick start
 
-1. Install yarn:
+1. If you don't have, install yarn (otherwise go to step 2):
 
 ```bash
 npm i -g yarn
 brew install yarn
 ```
-2. Install parcel v2:
+2. Run project:
 
 ```bash
-yarn add parcel --dev
-```
-3. Run project:
-
-```bash
-yarn parcel src/index.html
+yarn run app 
 ```
 
-4. Open in browser http://localhost:1234
